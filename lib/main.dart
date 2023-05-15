@@ -53,7 +53,7 @@ class _MyAppState extends State<MyApp> {
           create: (ctx) => Podcasts(),
         ),
       ],
-      child: MaterialApp(debugShowCheckedModeBanner: false, home: HomeScreen(),
+      child: MaterialApp(debugShowCheckedModeBanner: false, home: LoginScreen(),
           // Scaffold(
           //   body: _widgetOptions[_selectedIndex],
           //   bottomNavigationBar: BottomNavigationBar(
