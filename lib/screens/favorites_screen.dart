@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:podcast_player/widgets/podcast_list.dart';
 
 import '../models/podcast.dart';
+import '../widgets/bottom_player_bar.dart';
 
 class FavoritesScreen extends StatelessWidget {
   static const routeName = '/favorites-screen';
@@ -31,6 +32,7 @@ class FavoritesScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: PodcastList(true, CategoryEnum.all),
+      bottomNavigationBar: BottomPlayerBar(),
     );
   }
 }

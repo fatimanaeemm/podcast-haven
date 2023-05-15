@@ -7,7 +7,7 @@ import 'package:podcast_player/screens/podcast_details.dart';
 import 'package:provider/provider.dart';
 import '../models/podcasts.dart';
 
-class PodcastList extends StatelessWidget {
+class PodcastList extends StatefulWidget {
   final bool showFavs;
   CategoryEnum category;
   int? limit;
@@ -15,27 +15,39 @@ class PodcastList extends StatelessWidget {
   PodcastList(this.showFavs, this.category, [this.limit]);
 
   @override
-  Widget build(BuildContext context) {
+  State<PodcastList> createState() => _PodcastListState();
+}
+
+class _PodcastListState extends State<PodcastList> {
+  late var podcastData;
+
+  @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
     final getter = Provider.of<Podcasts>(context);
-    var podcastData;
-    if (showFavs) {
+    if (widget.showFavs) {
       podcastData = getter.favoriteItems;
-    } else if (category != CategoryEnum.all) {
-      podcastData = getter.byCategory(category);
+    } else if (widget.category != CategoryEnum.all) {
+      podcastData = getter.byCategory(widget.category);
     } else {
       podcastData = getter.allPodcasts;
     }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return ListView.builder(
-      scrollDirection: Axis.horizontal,
-      itemCount: this.limit ?? podcastData.length,
+      //scrollDirection: Axis.horizontal,
+      itemCount: podcastData.length,
       itemBuilder: (BuildContext context, int index) {
         MediaItem metadata = podcastData.sequence[index].tag as MediaItem;
         return GestureDetector(
           onTap: () => Navigator.of(context).pushNamed(PodcastDetails.routeName,
               arguments: {
                 'index': index,
-                'showsFavs': showFavs,
-                'category': category
+                'showsFavs': widget.showFavs,
+                'category': widget.category
               }),
           child: ListTile(
             leading: CircleAvatar(
@@ -45,11 +57,14 @@ class PodcastList extends StatelessWidget {
             subtitle: Text(metadata.artist!),
             trailing: IconButton(
               //iconSize: 5,
-              icon: Icon(getter.findById(metadata.id).isFavorite
+              icon: Icon(Provider.of<Podcasts>(context, listen: false)
+                      .findById(metadata.id)
+                      .isFavorite
                   ? Icons.favorite
                   : Icons.favorite_border),
               onPressed: () {
-                getter.toggleFavoriteStatus(metadata.id);
+                Provider.of<Podcasts>(context, listen: false)
+                    .toggleFavoriteStatus(metadata.id);
               },
             ),
           ),

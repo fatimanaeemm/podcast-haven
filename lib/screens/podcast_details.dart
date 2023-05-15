@@ -72,6 +72,8 @@ class _PodcastDetailsState extends State<PodcastDetails> {
     } else if (_category == CategoryEnum.politics) {
       playlist = Provider.of<Podcasts>(context).politics;
     }
+    Provider.of<AudioPlayerModel>(context, listen: false)
+        .changeFavStatus(_showingFavs);
     // final settings = ModalRoute.of(context)!.settings;
     //   if (settings.arguments == null) {
     //     if (AudioPlayerModel.currentIndex == 0) {

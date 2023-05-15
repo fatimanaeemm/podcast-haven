@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:podcast_player/widgets/podcast_list.dart';
 import '../models/podcast.dart';
+import '../widgets/bottom_player_bar.dart';
 
 class CategoryScreen extends StatelessWidget {
   static const routeName = '/category-screen';
@@ -12,6 +13,7 @@ class CategoryScreen extends StatelessWidget {
     final CategoryEnum category =
     ModalRoute.of(context)!.settings.arguments as CategoryEnum;
     return Scaffold(
+      bottomNavigationBar: BottomPlayerBar(),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Color(0xfff0ecec),

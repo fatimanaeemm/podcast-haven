@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:podcast_player/models/podcast.dart';
 import 'package:podcast_player/widgets/podcast_list.dart';
 
+import '../widgets/bottom_player_bar.dart';
+
 class PodcastLibrary extends StatelessWidget {
   static const routeName = '/podcast-library';
   const PodcastLibrary({super.key});
@@ -12,6 +14,7 @@ class PodcastLibrary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomPlayerBar(),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Color(0xfff0ecec),

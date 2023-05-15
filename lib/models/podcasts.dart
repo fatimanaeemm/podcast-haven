@@ -69,7 +69,6 @@ class Podcasts with ChangeNotifier {
   static int get length => _podcasts.length;
 
   ConcatenatingAudioSource get allPodcasts {
-    AudioPlayerModel.currentPlaying = allPodcasts;
     return ConcatenatingAudioSource(children: [
       for (var p in _podcasts)
         AudioSource.uri(Uri.parse(p.audioLink),
@@ -82,7 +81,6 @@ class Podcasts with ChangeNotifier {
   }
 
   ConcatenatingAudioSource get entertainment {
-    AudioPlayerModel.currentPlaying = entertainment;
     return ConcatenatingAudioSource(children: [
       for (var p
           in _podcasts.where((p) => p.category == CategoryEnum.entertainment))
@@ -96,7 +94,6 @@ class Podcasts with ChangeNotifier {
   }
 
   ConcatenatingAudioSource get technology {
-    AudioPlayerModel.currentPlaying = technology;
     return ConcatenatingAudioSource(children: [
       for (var p
           in _podcasts.where((p) => p.category == CategoryEnum.technology))
@@ -110,7 +107,6 @@ class Podcasts with ChangeNotifier {
   }
 
   ConcatenatingAudioSource get sports {
-    AudioPlayerModel.currentPlaying = sports;
     return ConcatenatingAudioSource(children: [
       for (var p in _podcasts.where((p) => p.category == CategoryEnum.sports))
         AudioSource.uri(Uri.parse(p.audioLink),
@@ -123,7 +119,6 @@ class Podcasts with ChangeNotifier {
   }
 
   ConcatenatingAudioSource get politics {
-    AudioPlayerModel.currentPlaying = politics;
     return ConcatenatingAudioSource(children: [
       for (var p in _podcasts.where((p) => p.category == CategoryEnum.politics))
         AudioSource.uri(Uri.parse(p.audioLink),

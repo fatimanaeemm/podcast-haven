@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:just_audio_background/just_audio_background.dart';
 import 'package:podcast_player/models/podcast.dart';
 
 class AudioPlayerModel with ChangeNotifier {
@@ -7,7 +8,7 @@ class AudioPlayerModel with ChangeNotifier {
   static int currentIndex = -1;
   static CategoryEnum currentCategory = CategoryEnum.all;
   static bool isPlaying = false;
-  static late var currentPlaying;
+  static bool showingFavs = false;
 
   Future<void> setUrl(
       CategoryEnum category, AudioSource currPlaylist, int newIndex) async {
@@ -20,6 +21,7 @@ class AudioPlayerModel with ChangeNotifier {
       initialPosition: Duration.zero,
       preload: true,
     );
+    notifyListeners();
   }
 
   Future<void> seekDuration(duration) => audioPlayer.seek(duration);
@@ -40,4 +42,12 @@ class AudioPlayerModel with ChangeNotifier {
       preload: true,
     );
   }
+
+  void changeFavStatus(bool status) {
+    showingFavs =  status;
+  }
+
+  int get getCurrIndex => currentIndex;
+
+  bool get isShowingFavs => showingFavs;
 }
