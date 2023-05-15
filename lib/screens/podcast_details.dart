@@ -74,22 +74,9 @@ class _PodcastDetailsState extends State<PodcastDetails> {
     }
     Provider.of<AudioPlayerModel>(context, listen: false)
         .changeFavStatus(_showingFavs);
-    // final settings = ModalRoute.of(context)!.settings;
-    //   if (settings.arguments == null) {
-    //     if (AudioPlayerModel.currentIndex == 0) {
-    //       _podcastIndex = '1';
-    //     } else {
-    //       _podcastIndex = AudioPlayerModel.currentIndex.toString();
-    //     }
-    //   } else {
-    //     _podcastIndex = settings.arguments as String;
-    //   }
 
     _loadedPodcast = playlist.sequence[_currIndex].tag as MediaItem;
 
-    // Provider.of<Podcasts>(context, listen: false)
-    //     .findById(_podcastIndex.toString());
-    //print(_loadedPodcast.name);
     if (_currIndex != AudioPlayerModel.currentIndex ||
         _category != AudioPlayerModel.currentCategory ||
         (_showingFavs && _currIndex != AudioPlayerModel.currentIndex)) {
@@ -110,16 +97,6 @@ class _PodcastDetailsState extends State<PodcastDetails> {
   void dispose() {
     super.dispose();
   }
-
-  // @override
-  // void didChangeAppLifecycleState(AppLifecycleState state) {
-  //   if (state == AppLifecycleState.paused) {
-  //     // Release the player's resources when not in use. We use "stop" so that
-  //     // if the app resumes later, it will still remember what position to
-  //     // resume from.
-  //     // _player.audioPlayer.stop();
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {

@@ -176,8 +176,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                   decoration: InputDecoration(
                                     suffixIconConstraints: BoxConstraints(
-                                      maxWidth:
-                                          30.0,
+                                      maxWidth: 30.0,
                                     ),
                                     suffixIcon: IconButton(
                                       iconSize: 20 * fem,
@@ -283,7 +282,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     Icons.warning,
                                     color: Colors.white,
                                     size: 14,
-                                  ), 
+                                  ),
                                   SizedBox(width: 8.0),
                                   Text(
                                     'Password doesn\'t match',
@@ -294,25 +293,21 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             ),
                             backgroundColor: Color(0xffff004c),
-                            duration: Duration(
-                                seconds:
-                                    3), 
+                            duration: Duration(seconds: 3),
                           );
                           ScaffoldMessenger.of(context).showSnackBar(snackBar);
                         }
                       },
                       style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all<Size>(
-                          Size(
-                              80 * fem, 40 * fem),
+                          Size(80 * fem, 40 * fem),
                         ),
                         backgroundColor:
                             MaterialStateProperty.all<Color>(Color(0xffff004c)),
                         shape:
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                                30.0), 
+                            borderRadius: BorderRadius.circular(30.0),
                           ),
                         ),
                       ),
@@ -327,38 +322,6 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           )),
                     ),
-                    RichText(
-                      textAlign: TextAlign.center,
-                      text: TextSpan(
-                        style: TextStyle(
-                          fontSize: 14 * ffem,
-                          fontWeight: FontWeight.w700,
-                          height: 1.2 * ffem / fem,
-                          color: Color(0xff141f5a),
-                        ),
-                        children: [
-                          TextSpan(
-                            text: 'Don’t have an account? \n',
-                          ),
-                          TextSpan(
-                            text: 'Sign up here.',
-                            style: TextStyle(
-                              fontSize: 14 * ffem,
-                              fontWeight: FontWeight.w400,
-                              height: 1.2 * ffem / fem,
-                              fontStyle: FontStyle.italic,
-                              decoration: TextDecoration.underline,
-                              color: Color(0xff141f5a),
-                              decorationColor: Color(0xff141f5a),
-                            ),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                print('Terms of Service tapped!');
-                              },
-                          ),
-                        ],
-                      ),
-                    )
                   ]),
             ),
           ),

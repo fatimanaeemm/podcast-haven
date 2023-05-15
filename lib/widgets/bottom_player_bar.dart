@@ -25,7 +25,6 @@ class _BottomPlayerBarState extends State<BottomPlayerBar> {
     super.didChangeDependencies();
     _player = Provider.of<AudioPlayerModel>(context);
     _currIndex = _player.getCurrIndex == -1 ? 0 : _player.getCurrIndex;
-    // if (_currIndex == -1) _currIndex - 0;
     if (_player.isShowingFavs) {
       playlist = Provider.of<Podcasts>(context).favoriteItems;
     } else if (AudioPlayerModel.currentCategory == CategoryEnum.all) {
@@ -45,9 +44,6 @@ class _BottomPlayerBarState extends State<BottomPlayerBar> {
 
   @override
   Widget build(BuildContext context) {
-    // var current = Provider.of<Podcasts>(context, listen: false)
-    //     .getPodcast(AudioPlayerModel.currentCategory, index);
-
     return GestureDetector(
       onTap: () {
         Navigator.of(context).pushNamed(PodcastDetails.routeName, arguments: {
@@ -88,21 +84,6 @@ class _BottomPlayerBarState extends State<BottomPlayerBar> {
               ),
             ),
             _playButton(),
-            // IconButton(
-            //   onPressed: () {
-            //     Navigator.of(context)
-            //         .pushNamed(PodcastDetails.routeName, arguments: {
-            //       'index': _currIndex,
-            //       'showsFavs': false,
-            //       'category': AudioPlayerModel.currentCategory
-            //     });
-            //   },
-            //   icon: Icon(
-            //     Icons.arrow_upward,
-            //     size: 30,
-            //     color: Colors.black,
-            //   ),
-            // ),
           ],
         ),
       ),

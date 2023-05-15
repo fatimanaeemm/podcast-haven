@@ -7,6 +7,7 @@ import 'screens/podcast_details.dart';
 import 'package:provider/provider.dart';
 import 'screens/home_screen.dart';
 import 'screens/podcast_library.dart';
+import 'screens/login_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -54,28 +55,6 @@ class _MyAppState extends State<MyApp> {
         ),
       ],
       child: MaterialApp(debugShowCheckedModeBanner: false, home: LoginScreen(),
-          // Scaffold(
-          //   body: _widgetOptions[_selectedIndex],
-          //   bottomNavigationBar: BottomNavigationBar(
-          //     items: const <BottomNavigationBarItem>[
-          //       BottomNavigationBarItem(
-          //         icon: Icon(Icons.home),
-          //         label: 'Home',
-          //       ),
-          //       BottomNavigationBarItem(
-          //         icon: Icon(Icons.music_note),
-          //         label: 'Music Player',
-          //       ),
-          //       BottomNavigationBarItem(
-          //         icon: Icon(Icons.favorite),
-          //         label: 'Favorites',
-          //       ),
-          //     ],
-          //     currentIndex: _selectedIndex,
-          //     selectedItemColor: Colors.blue,
-          //     onTap: _onItemTapped,
-          //   ),
-          // ),
           routes: {
             PodcastDetails.routeName: (ctx) => PodcastDetails(),
             HomeScreen.routeName: (ctx) => HomeScreen(),

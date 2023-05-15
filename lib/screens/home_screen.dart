@@ -18,19 +18,12 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    // var categories = List<String>.filled(20, 'category');
     ScrollController _scrollController = ScrollController();
     int count = 0;
     var categories = CategoryEnum.values;
 
     var ffem = 0.8;
     var fem = 0.8;
-    //   'Self Development': 'assets/images/image.JPG',
-    //   'Motivation': 'assets/images/image.JPG',
-    //   'Books': 'assets/images/image.JPG',
-    //   'Category' : 'assets/images/image.JPG',
-    //   'Category' : 'assets/images/image.JPG',
-    // };
     void _scrollToNextItem() {
       double currentOffset = _scrollController.offset;
       _scrollController.animateTo(
@@ -76,10 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           Expanded(
                             flex: 4,
-                            //height: 60 * fem,
-                            // width: double.infinity,
                             child: Column(
-                              //crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
                                   'Welcome Back! ',
@@ -98,7 +88,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                     textStyle: TextStyle(
                                       fontSize: 18 * ffem,
                                       fontWeight: FontWeight.w700,
-                                      //height: 1.2 * ffem / fem,
                                       color: Color(0xff141f5a),
                                     ),
                                   ),
@@ -123,48 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            // Container(
-            //   padding:
-            //       EdgeInsets.fromLTRB(10 * fem, 16 * fem, 0 * fem, 18 * fem),
-            //   width: double.infinity,
-            //   height: 55 * fem,
-            //   decoration: BoxDecoration(
-            //     color: Color(0x19141f5a),
-            //     borderRadius: BorderRadius.circular(16 * fem),
-            //   ),
-            //   child: Row(
-            //     //crossAxisAlignment: CrossAxisAlignment.center,
-            //     children: [
-            //       Container(
-            //         margin: EdgeInsets.fromLTRB(
-            //             0 * fem, 0 * fem, 69 * fem, 0 * fem),
-            //         height: double.infinity,
-            //         child: Row(
-            //           //mainAxisAlignment: MainAxisAlignment.start,
-            //           //crossAxisAlignment: CrossAxisAlignment.start,
-            //           children: [
-            //             Expanded(
-            //               // margin: EdgeInsets.fromLTRB(
-            //               //     10 * fem, 0 * fem, 16 * fem, 0 * fem),
-            //               // width: 18 * fem,
-            //               // height: 18 * fem,
-            //               child: Icon(Icons.search, size: 16 * ffem),
-            //             ),
-            //             Text('What would you like to listen to today?',
-            //                 style: GoogleFonts.lato(
-            //                   textStyle: TextStyle(
-            //                     fontSize: 16 * ffem,
-            //                     fontWeight: FontWeight.w400,
-            //                     height: 1.2 * ffem / fem,
-            //                     color: Color(0xff141f5a),
-            //                   ),
-            //                 )),
-            //           ],
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
+
             Expanded(
               flex: 2,
               child: Column(children: [
@@ -200,7 +148,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Expanded(
                     flex: 3,
-                    //height: 100, // Set the desired height of the list view
                     child: ListView.builder(
                         controller: _scrollController,
                         scrollDirection: Axis
@@ -240,8 +187,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       Expanded(
                         flex: 1,
-                        // margin: EdgeInsets.fromLTRB(
-                        //     0 * fem, 0 * fem, 161 * fem, 0 * fem),
                         child: Text(
                           'Browse',
                           style: GoogleFonts.lato(
@@ -268,14 +213,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Expanded(
                     flex: 4,
-                    //height: 100, // Set the desired height of the list view
                     child: PodcastList(false, CategoryEnum.all),
                   ),
                 ]),
               ),
             ),
-
-            //Expanded(flex: 1, child: BottomPlayerBar())
           ],
         ),
       ),
