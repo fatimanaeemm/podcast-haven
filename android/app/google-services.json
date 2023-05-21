@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1067206417679",
+    "project_id": "podcast-haven",
+    "storage_bucket": "podcast-haven.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067206417679:android:e2ac375c4c118f20e3b27a",
+        "android_client_info": {
+          "package_name": "com.example.podcast_player"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1067206417679-icim77fn7ak3po11db8fdgsaotim95j1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_02fWSN5vMO6ehbedHjf39kMuuGagUEY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1067206417679-icim77fn7ak3po11db8fdgsaotim95j1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

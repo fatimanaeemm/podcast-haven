@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../consts/app_images.dart';
 
 enum CategoryEnum { technology, sports, entertainment, politics, all }
 
@@ -19,5 +20,35 @@ class Podcast with ChangeNotifier {
       required this.isLocal,
       required this.author,
       required this.category,
-      this.isFavorite = false});
+      required this.isFavorite});
+
+  static CategoryEnum mapStringToCategoryEnum(String value) {
+    switch (value) {
+      case 'technology':
+        return CategoryEnum.technology;
+      case 'sports':
+        return CategoryEnum.sports;
+      case 'entertainment':
+        return CategoryEnum.entertainment;
+      case 'politics':
+        return CategoryEnum.politics;
+      case 'all':
+        return CategoryEnum.all;
+      default:
+        return CategoryEnum.all;
+    }
+  }
+
+  static Podcast fromMap(Map<String, dynamic> map) {
+    return Podcast(
+      id: map['id'] as String? ?? '',
+      title: map['title'] as String? ?? '',
+      coverPicture: map['coverPicture'] ?? AppImages.podcastImages[0],
+      audioLink: map['audioLink'] ?? '',
+      isLocal: map['isLocal'] ?? false,
+      author: map['author'] ?? '',
+      category: mapStringToCategoryEnum(map['category']),
+      isFavorite: map['isFavourite'] ?? false,
+    );
+  }
 }

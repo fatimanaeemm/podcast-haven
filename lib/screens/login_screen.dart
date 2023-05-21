@@ -228,7 +228,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ElevatedButton(
                       onPressed: () {
                         _closeKeyboard();
-                        final correctEmail = "xyz@gmail.com";
+                        final correctEmail = "daniyahimran@gmail.com";
                         final correctPassword = "password";
                         setState(() {
                           _wrongEmail = false;

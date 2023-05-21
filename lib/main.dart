@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:podcast_player/screens/favorites_screen.dart';
 import 'models/audio_manager.dart';
@@ -9,7 +10,15 @@ import 'screens/home_screen.dart';
 import 'screens/podcast_library.dart';
 import 'screens/login_screen.dart';
 
+import 'package:firedart/firedart.dart';
+//import 'package:firebase_core/firebase_core.dart';
+
+const apiKey = 'AIzaSyCTN628MLtF-RFqYMA-CSLIDyVuSEpko9c';
+const projectId = 'podcast-haven';
+
 void main() {
+  Firestore.initialize(projectId);
+  Podcasts();
   runApp(MyApp());
 }
 
@@ -54,7 +63,9 @@ class _MyAppState extends State<MyApp> {
           create: (ctx) => Podcasts(),
         ),
       ],
-      child: MaterialApp(debugShowCheckedModeBanner: false, home: LoginScreen(),
+      child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: LoginScreen(),
           routes: {
             PodcastDetails.routeName: (ctx) => PodcastDetails(),
             HomeScreen.routeName: (ctx) => HomeScreen(),

@@ -64,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             flex: 2,
                             child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8 * fem),
-                                child: Image.asset("assets/girl.png",
+                                child: Image.asset("assets/backdrop2.jpg",
                                     fit: BoxFit.cover)),
                           ),
                           Expanded(
@@ -112,7 +112,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-
             Expanded(
               flex: 2,
               child: Column(children: [
@@ -170,7 +169,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                       8 * fem),
                                               child: Image.asset(
                                                   "assets/girl.png",
-                                                  fit: BoxFit.cover)),
+                                                  fit: BoxFit.scaleDown)),
                                           Text(
                                               categories[index].name.toString())
                                         ],
